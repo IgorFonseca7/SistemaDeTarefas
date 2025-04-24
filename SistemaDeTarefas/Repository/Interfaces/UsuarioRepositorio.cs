@@ -18,10 +18,7 @@ namespace SistemaDeTarefas.Repository.Interfaces
         {
             return await _dbContext.Usuarios.ToListAsync();
         }
-        public async Task<UsuarioModel> BuscarUsuarioPorId(int id)
-        {
-            return await _dbContext.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
-        }
+        public async Task<UsuarioModel> BuscarUsuarioPorId(int id) => await _dbContext?.Usuarios?.FirstOrDefaultAsync(x => x.Id == id) ?? null;
         // Implementação do método Adicionar
         public async Task<UsuarioModel> Adicionar(UsuarioModel user)
         {
